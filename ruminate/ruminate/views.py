@@ -20,9 +20,9 @@ def course(request):
     populated = False
 
     for x in range(0,7):
-        end_time_calc = dt.now() - datetime.timedelta(days=x)
+        end_time_calc = dt.now() - datetime.timedelta(days=x) - datetime.timedelta(minutes = 1)
         start_time_calc = end_time_calc - datetime.timedelta(days=1)
-        old_list.insert(x, list(presortold_list.filter(end_time__lt=(end_time_calc), end_time__gt=(start_time_calc))))
+        old_list.insert(x, list(presortold_list.filter(start_time__lt=(end_time_calc), start_time__gt=(start_time_calc))))
         if(old_list[x] != []):
             populated = True
 
@@ -30,14 +30,32 @@ def course(request):
         old_list = []
 
 
+    preupcoming_list = Office_Hour.objects.filter(is_live=False).filter(start_time__gt=dt.now())
+
+    upcoming_list = []
+
+    populated = False
+
+    for x in range(0,7):
+        start_time_calc = dt.now() + datetime.timedelta(days=x) + datetime.timedelta(minutes = 1)
+        end_time_calc = start_time_calc + datetime.timedelta(days=1)
+        print("Range is ", start_time_calc, end_time_calc)
+        upcoming_list.insert(x, list(preupcoming_list.filter(start_time__gt=(start_time_calc), start_time__lt=(end_time_calc))))
+        if(upcoming_list[x] != []):
+            populated = True
+
+    if(populated == False):
+        upcoming_list = []
+
     print("Live list is ", live_list)
     print("Class list is ", class_list)
-    print("Preold list is", presortold_list)
+    print("Upcoming list is", upcoming_list)
     print("Old list is ", old_list)
     context = {
         'live_list': live_list,
         'class_list': class_list,
         'old_list': old_list,
+        'upcoming_list': upcoming_list,
     }
     template = loader.get_template('ruminate/app.html')
     return HttpResponse(template.render(context, request))

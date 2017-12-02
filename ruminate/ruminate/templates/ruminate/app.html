@@ -63,30 +63,24 @@
                 </section>
                 <section id="hours">
                     <h3>Upcoming Hours</h3>
+                    {% if upcoming_list %}
+                    {% for entry in upcoming_list %}
                     <section class="hour">
-                        <h4>Timeframe</h4>
+                        <h4>{{entry.0.start_time|date:""}}</h4>
+                        
                         <ul>
-                            <li>2:00PM Carlos Gonzalez</li>
-                            <li>2:00PM Carlos Gonzalez</li>
-                            <li>2:00PM Carlos Gonzalez</li>
+                            {% for hours in entry %}
+                            <li>{{hours.start_time|time:""}} - {{hours.end_time|time:""}}        {{hours.teaching_assistant}}</li>
+                            {% endfor %}
                         </ul>
+                        
                     </section>
+                    {% endfor %}
+                    {% else %}
                     <section class="hour">
-                        <h4>Timeframe</h4>
-                        <ul>
-                            <li>2:00PM Carlos Gonzalez</li>
-                            <li>2:00PM Carlos Gonzalez</li>
-                            <li>2:00PM Carlos Gonzalez</li>
-                        </ul>
+                        <h4>No Upcoming Hours</h4>
                     </section>
-                    <section class="hour">
-                        <h4>Timeframe</h4>
-                        <ul>
-                            <li>2:00PM Carlos Gonzalez</li>
-                            <li>2:00PM Carlos Gonzalez</li>
-                            <li>2:00PM Carlos Gonzalez</li>
-                        </ul>
-                    </section>
+                    {% endif %}
                 </section>
             </aside>
             <div id="content">
