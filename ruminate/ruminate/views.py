@@ -15,13 +15,19 @@ def course(request):
     live_list = Office_Hour.objects.filter(is_live=True)
     class_list = User.objects.filter(name="Ryan Slama")[0].course_enrolled.all
 
-    presortold_list = Office_Hour.objects.filter(is_live=False).filter(end_time__lt=dt.now()) 
+    presortold_list = Office_Hour.objects.filter(is_live=False).filter(end_time__lt=dt.now()).filter(is_completed=True) 
     old_list = []
+    populated = False
 
     for x in range(0,7):
         end_time_calc = dt.now() - datetime.timedelta(days=x)
         start_time_calc = end_time_calc - datetime.timedelta(days=1)
         old_list.insert(x, list(presortold_list.filter(end_time__lt=(end_time_calc), end_time__gt=(start_time_calc))))
+        if(old_list[x] != []):
+            populated = True
+
+    if(populated == False):
+        old_list = []
 
 
     print("Live list is ", live_list)

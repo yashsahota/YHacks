@@ -22,6 +22,7 @@ class Office_Hour(models.Model):
     course = models.ForeignKey(Course)
     teaching_assistant = models.ForeignKey(User)
     is_live = models.BooleanField(default=False)
+    is_completed = models.BooleanField(default=False);
     stream_link = models.URLField(blank=True)
 
     def __str__(self):
