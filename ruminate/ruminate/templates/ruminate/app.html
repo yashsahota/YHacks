@@ -90,8 +90,11 @@
                 </section>
             </aside>
             <div id="content">
+                {% if old_list %}
+                {% for entry in old_list %}
+                {% if entry %}
                 <article>
-                    <h2>Thursday, November 28th</h2>
+                    <h2>{{entry.0.start_time|date:""}}</h2>
                     <ul>
                         <li>
                             <a href="" class="watch button">Watch</a>
@@ -172,171 +175,9 @@
                             </li>
                         </ul>
                     </article>
-                <article>
-                        <h2>Tuesday, November 28th</h2>
-                        <ul>
-                            <li>
-                                <a href="" class="watch button">Watch</a>
-                                <span>Eli Hopscotch</span>
-                                <div class="chevron"><img src="{% static 'chevron.svg' %}" alt=""></div>
-                                <div class="panel">
-                                    <div class="question">
-                                        <div class="timestamp">0:00</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                    <div class="question">
-                                        <div class="timestamp">4:21</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                    <div class="question">
-                                        <div class="timestamp">7:48</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                </div>
-                            </li>
-                            
-                            <li>
-                                <a href="" class="watch button">Watch</a>
-                                <span>Yash Sahtota</span>
-                                <div class="chevron"><img src="{% static 'chevron.svg' %}" alt=""></div>
-                                <div class="panel">
-                                        <div class="question">
-                                            <div class="timestamp">0:00</div>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                        </div>
-                                        <div class="question">
-                                            <div class="timestamp">4:21</div>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                        </div>
-                                        <div class="question">
-                                            <div class="timestamp">7:48</div>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                        </div>
-                                    </div>
-                            </li>
-                            <li>
-                                <a href="" class="watch button">Watch</a>
-                                <span>Ryan Slama</span>
-                                <div class="chevron"><img src="{% static 'chevron.svg' %}" alt=""></div>
-                                <div class="panel">
-                                        <div class="question">
-                                            <div class="timestamp">0:00</div>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                        </div>
-                                        <div class="question">
-                                            <div class="timestamp">4:21</div>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                        </div>
-                                        <div class="question">
-                                            <div class="timestamp">7:48</div>
-                                            <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                        </div>
-                                    </div>
-                            </li>
-                            <li>
-                                <a href="" class="watch button">Watch</a>
-                                <span>Arjun Bhalla</span>
-                                <div class="chevron"><img src="{% static 'chevron.svg' %}" alt=""></div>
-                                <div class="panel">
-                                    <div class="question">
-                                        <div class="timestamp">0:00</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                    <div class="question">
-                                        <div class="timestamp">4:21</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                    <div class="question">
-                                        <div class="timestamp">7:48</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </article>
-                <article>
-                    <h2>Monday, November 27th</h2>
-                    <ul>
-                        <li>
-                            <a href="" class="watch button">Watch</a>
-                            <span>Eli Hopscotch</span>
-                            <div class="chevron"><img src="{% static 'chevron.svg' %}" alt=""></div>
-                            <div class="panel">
-                                <div class="question">
-                                    <div class="timestamp">0:00</div>
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                </div>
-                                <div class="question">
-                                    <div class="timestamp">4:21</div>
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                </div>
-                                <div class="question">
-                                    <div class="timestamp">7:48</div>
-                                    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                </div>
-                            </div>
-                        </li>
-                        
-                        <li>
-                            <a href="" class="watch button">Watch</a>
-                            <span>Yash Sahtota</span>
-                            <div class="chevron"><img src="{% static 'chevron.svg' %}" alt=""></div>
-                            <div class="panel">
-                                    <div class="question">
-                                        <div class="timestamp">0:00</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                    <div class="question">
-                                        <div class="timestamp">4:21</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                    <div class="question">
-                                        <div class="timestamp">7:48</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                </div>
-                        </li>
-                        <li>
-                            <a href="" class="watch button">Watch</a>
-                            <span>Ryan Slama</span>
-                            <div class="chevron"><img src="{% static 'chevron.svg' %}" alt=""></div>
-                            <div class="panel">
-                                    <div class="question">
-                                        <div class="timestamp">0:00</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                    <div class="question">
-                                        <div class="timestamp">4:21</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                    <div class="question">
-                                        <div class="timestamp">7:48</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                </div>
-                        </li>
-                        <li>
-                            <a href="" class="watch button">Watch</a>
-                            <span>Arjun Bhalla</span>
-                            <div class="chevron"><img src="{% static 'chevron.svg' %}" alt=""></div>
-                            <div class="panel">
-                                    <div class="question">
-                                        <div class="timestamp">0:00</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                    <div class="question">
-                                        <div class="timestamp">4:21</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                    <div class="question">
-                                        <div class="timestamp">7:48</div>
-                                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
-                                    </div>
-                                </div>
-                        </li>
-                    </ul>
-                </article>
-
+                    {% endif %}
+                    {% endfor %}
+                    {% endif %}
             </div>
         </div>
     </body>
