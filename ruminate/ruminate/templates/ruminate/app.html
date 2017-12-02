@@ -9,8 +9,8 @@
         <nav>
             <h1><img src="{% static 'logo2.svg' %}" alt="">Ruminate</h1>
         </nav>
-        <header>
-            <ul>
+
+            <!--<ul>
                 <li>
                     <a href="" class="button live">Live Now</a>
                     <span>Justin Kim</span>
@@ -18,7 +18,20 @@
                 <li>
                     <a href="" class="button live">Live Now</a>
                     <span>Justin Kim, II</span>
+                </li>-->
+                {% if live_list %}
+        <header>
+            <ul>
+                {% for entry in live_list %}
+                <li>
+                    <a href="" class="button live">Live Now</a>
+                    <span>{{ entry.teaching_assistant }}</span>
                 </li>
+                {% endfor %}
+            </ul>
+       </header>
+                {% else %}
+                {% endif %}
                 <!-- <li>
                     <a href="" class="button live">Live Now</a>
                     <span>Justin Kim, II</span>
@@ -28,16 +41,24 @@
                     <span>Justin Kim, II</span>
                 </li> -->
             </ul>
-        </header>
+ 
         <div id="wrap">
             <aside>
                 <section id="classes">
                     <h3>Classes</h3>
                     <ul>
+                        {% if class_list %}
+                        {% for entry in class_list %}
+                        <!--
                         <li>CS 2840: Networks</li>
                         <li>CS 3410: Computer Architecture</li>
                         <li>BTRY 3080: Statistics & Probabilities</li>
-                        <li>ECE 2300: Digital Logic</li>
+                        <li>ECE 2300: Digital Logic</li>-->
+                        <li>{{entry.name}}</li>
+                        {% endfor %}
+                        {% else %}
+                        <li>You are not enrolled in any classes</li>
+                        {% endif %}
                     </ul>
                 </section>
                 <section id="hours">
